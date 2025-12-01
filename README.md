@@ -13,7 +13,7 @@ Lokalny GUI do automatycznej synchronizacji napisow SRT z wideo przy pomocy Whis
 - Python 3.10+ na Windows
 - zaleznosci z `requirements.txt` (whisper/torch moga byc duze)
 - GPU opcjonalne; jesli jest dostepny Torch wybierze CUDA
-- `ffmpeg.exe`/`ffplay.exe`/`ffprobe.exe` znajduja sie w katalogu projektu
+- `ffmpeg.exe`/`ffplay.exe`/`ffprobe.exe` w katalogu projektu (obok `AutoSubtitleSync.py`)
 
 ## Instalacja (zalecane)
 1. `python -m venv .venv`
@@ -35,7 +35,7 @@ auto_sync("film.mp4", "napisy.srt", Config(whisper_model="small", language="pl")
 
 ## Struktura repo
 - `AutoSubtitleSync.py` - logika VAD + Whisper + GUI Tkinter
-- `ffmpeg.exe`, `ffplay.exe`, `ffprobe.exe` - binaria ffmpeg do ekstrakcji audio
+- `ffmpeg.exe`, `ffplay.exe`, `ffprobe.exe` - binaria ffmpeg; trzymaj w katalogu projektu obok skryptu
 - `output/` - gotowe napisy (tworzone automatycznie)
 - `temp/` - pliki pomocnicze (audio.wav)
 - `debug_log.txt` - logi ostatnich uruchomien
@@ -46,3 +46,4 @@ auto_sync("film.mp4", "napisy.srt", Config(whisper_model="small", language="pl")
 - Whisper wybiera GPU jesli dostepne; w przeciwnym razie dziala na CPU (wolniej)
 - Jesli chcesz wymusic jezyk, ustaw go w polu "Jezyk mowy"; opcja "auto" korzysta z detekcji
 - GPU AMD: na Windows praktycznie brak wsparcia ROCm (dziala tylko CPU). Na Linux/WSL zainstaluj ROCm i Torch z ROCm (np. `pip install --pre torch --index-url https://download.pytorch.org/whl/rocm6.0`), wtedy `torch.cuda.is_available()` bedzie True i Whisper uzyje GPU AMD. Na macOS GPU AMD nie jest wspierane.
+- Jesli usuniesz binaria ffmpeg, pobierz statyczne buildy dla Windows (np. gyan.dev/BtbN) i wklej `ffmpeg.exe`, `ffplay.exe`, `ffprobe.exe` do katalogu projektu.
