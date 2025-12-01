@@ -1,0 +1,6 @@
+﻿numpy
+srt
+soundfile
+librosa
+openai-whisper
+torch

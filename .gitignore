@@ -1,0 +1,25 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.log
+*.tmp
+*.wav
+
+# Virtualenv
+.venv/
+
+# Outputs
+output/
+temp/
+debug_log.txt
+
+# FFmpeg binaries (duze pliki)
+ffmpeg.exe
+ffplay.exe
+ffprobe.exe
+
+# OS
+.DS_Store
+Thumbs.db
